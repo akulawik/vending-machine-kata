@@ -13,24 +13,9 @@ public class Money {
 
     private final BigDecimal value;
 
-    public Money(double value) {
-        this.value = round2(value);
-    }
-
     public Money(BigDecimal value) {
         checkArgument(value != null);
         this.value = round2(value);
-    }
-
-
-    public static Money money(double value){
-        return new Money(value);
-    }
-
-    public Money add(Money that) {
-        Preconditions.checkArgument(that != null, "Operation component cannot be null");
-
-        return new Money(this.value.add(that.value));
     }
 
     @Override
@@ -40,10 +25,6 @@ public class Money {
 
     public String format() {
         return value.toString();
-    }
-
-    public boolean isZero() {
-        return this.equals(money(0));
     }
 
     /**
@@ -67,13 +48,10 @@ public class Money {
         return value.hashCode();
     }
 
-    public static BigDecimal round2(double value) {
-        return round2(new BigDecimal(value));
-    }
-
     public static BigDecimal round2(BigDecimal value) {
         return round(value, 2);
     }
+
 
     public static BigDecimal round(BigDecimal value, int scale) {
         Preconditions.checkArgument(value != null, "Value cannot be null");

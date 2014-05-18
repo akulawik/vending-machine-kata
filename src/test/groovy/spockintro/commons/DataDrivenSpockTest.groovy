@@ -14,22 +14,22 @@ class DataDrivenSpockTest extends Specification {
      * KEY points:
      * - provide test data using table style or streams style, you pick
      */
-    def "should round given value to 2 digits - single test"() {
+    @Unroll
+    def """should round #givenValue.class.simpleName #givenValue
+           to #expectedValue with scale #scale"""() {
 
         when:
-        def result = Money.round2(givenValue)
+        def result = Money.round(givenValue, scale)
 
         then:
         result == expectedValue
 
         where:
-        givenValue                       | expectedValue
-        0.339d                           | 0.34
-        0.33d                            | 0.33
-        0.3d                             | 0.3
-        new BigDecimal (0.1245,DECIMAL32)| 0.12
-        new BigDecimal (0.128,DECIMAL32) | 0.13
-        new BigDecimal (0.1,DECIMAL32)   | 0.1
+        givenValue                       | scale || expectedValue
+        0.339d                           | 2     || 0.34
+        0.22d                            | 2     || 0.22
+        0.1d                             | 1     || 0.1
+        new BigDecimal(2.333, DECIMAL32) | 2     || 2.33
     }
 
     /**

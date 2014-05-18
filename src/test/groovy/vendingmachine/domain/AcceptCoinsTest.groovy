@@ -62,7 +62,7 @@ class AcceptCoinsTest extends Specification{
         def result = vendingMachine.insert PENNY
 
         then:
-        vendingMachine.display == "CREDIT 0.10"
+        vendingMachine.display == "CREDIT 0.30"
         result.get() == PENNY
     }
 
