@@ -16,10 +16,10 @@ public class MoneyTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                { new BigDecimal(0.339)   , 2    , new BigDecimal(0.34).setScale(2, RoundingMode.HALF_UP)},
-                { new BigDecimal(0.22)    , 2    , new BigDecimal(0.22).setScale(2, RoundingMode.HALF_UP)},
-                { new BigDecimal(0.2)     , 1    , new BigDecimal(0.1).setScale(1, RoundingMode.HALF_UP) },
-                { new BigDecimal(2.333)   , 2    , new BigDecimal(2.33).setScale(2, RoundingMode.HALF_UP)}
+                { new BigDecimal(0.339) , 2 , new BigDecimal(0.34).setScale(2, RoundingMode.HALF_UP)},
+                { new BigDecimal(0.22 ) , 2 , new BigDecimal(0.22).setScale(2, RoundingMode.HALF_UP)},
+                { new BigDecimal(0.2  ) , 1 , new BigDecimal(0.1 ).setScale(1, RoundingMode.HALF_UP)},
+                { new BigDecimal(2.333) , 2 , new BigDecimal(2.33).setScale(2, RoundingMode.HALF_UP)}
         });
     }
 
